@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,21 +20,31 @@ namespace Server
             InitializeComponent();
         }
         SimpleTcpServer server;
-        SimpleTcpClient eg;
+        TcpClient client;
         private void Form1_Load(object sender, EventArgs e)
         {
             server = new SimpleTcpServer();
             server.Delimiter = 0x13;
             server.StringEncoder = Encoding.UTF8;
             server.DataReceived += Server_DataReceived;
+            server.ClientConnected += Server_ClientConnected;
+        }
+
+        private void Server_ClientConnected(object sender, TcpClient e)
+        {
+            //byte[] dt = Encoding.Default.GetBytes(txtMessage.Text);
+            //e.Client.Send(dt, 0, dt.Length,SocketFlags.None);
+            client = e;
         }
 
         private void Server_DataReceived(object sender, SimpleTCP.Message e)
         {
+       //     eg = e.TcpClient
             txtStatus.Invoke((MethodInvoker)delegate ()
             {
+
                 txtStatus.Text += e.MessageString;
-                e.ReplyLine(string.Format("Recieved {0},{1}",e.TcpClient.Client, e.MessageString));
+                e.ReplyLine(((char)06).ToString());
             });
         }
 
@@ -54,10 +65,8 @@ namespace Server
 
         private void brnSend_Click(object sender, EventArgs e)
         {
-            //SimpleTcpClient client = new SimpleTcpClient();
-            //    client.TcpClient.Client = new System.Net.Sockets.Socket(,);
-            //client.StringEncoder = Encoding.UTF8;
-            //client.WriteLine("asdf");
+            byte[] dt = Encoding.Default.GetBytes(txtMessage.Text);
+            client.Client.Send(dt, 0, dt.Length, SocketFlags.None);
         }
     }
 }

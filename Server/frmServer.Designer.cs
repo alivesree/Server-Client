@@ -37,6 +37,10 @@
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.brnSend = new System.Windows.Forms.Button();
             this.txtMessage = new System.Windows.Forms.TextBox();
+            this.txtClintPort = new System.Windows.Forms.TextBox();
+            this.txtClientIP = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -92,7 +96,7 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(61, 115);
+            this.txtStatus.Location = new System.Drawing.Point(61, 106);
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(357, 78);
@@ -116,11 +120,46 @@
             this.txtMessage.Size = new System.Drawing.Size(357, 43);
             this.txtMessage.TabIndex = 14;
             // 
+            // txtClintPort
+            // 
+            this.txtClintPort.Location = new System.Drawing.Point(318, 209);
+            this.txtClintPort.Name = "txtClintPort";
+            this.txtClintPort.Size = new System.Drawing.Size(100, 20);
+            this.txtClintPort.TabIndex = 19;
+            // 
+            // txtClientIP
+            // 
+            this.txtClientIP.Location = new System.Drawing.Point(99, 208);
+            this.txtClientIP.Name = "txtClientIP";
+            this.txtClientIP.Size = new System.Drawing.Size(100, 20);
+            this.txtClientIP.TabIndex = 18;
+            this.txtClientIP.Text = "127.0.0.1";
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(12, 208);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 14);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Client IP";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(246, 215);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 14);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Client Port";
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 326);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtClintPort);
+            this.Controls.Add(this.txtClientIP);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.brnSend);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.txtStatus);
@@ -149,6 +188,10 @@
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Button brnSend;
         private System.Windows.Forms.TextBox txtMessage;
+        private System.Windows.Forms.TextBox txtClintPort;
+        private System.Windows.Forms.TextBox txtClientIP;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
