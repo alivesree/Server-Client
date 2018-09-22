@@ -45,7 +45,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(379, 32);
+            this.btnConnect.Location = new System.Drawing.Point(358, 32);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 11;
@@ -86,7 +86,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(379, 74);
+            this.button1.Location = new System.Drawing.Point(439, 35);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -96,10 +96,11 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(61, 106);
+            this.txtStatus.Location = new System.Drawing.Point(46, 70);
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(357, 78);
+            this.txtStatus.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtStatus.Size = new System.Drawing.Size(448, 122);
             this.txtStatus.TabIndex = 13;
             // 
             // brnSend

@@ -44,7 +44,8 @@ namespace Server
             {
 
                 txtStatus.Text += e.MessageString;
-                e.ReplyLine(((char)06).ToString());
+                txtStatus.ScrollToCaret();
+              //  e.ReplyLine(((char)06).ToString());
             });
         }
 
