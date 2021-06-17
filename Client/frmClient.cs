@@ -140,6 +140,11 @@ namespace client
         {
             btnConnect.Enabled = !rdbUDP.Checked;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 
 

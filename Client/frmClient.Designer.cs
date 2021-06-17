@@ -48,6 +48,7 @@
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.htmlLabel2 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.htmlLabel3 = new MetroFramework.Drawing.Html.HtmlLabel();
+            this.btnClose = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -248,12 +249,29 @@
             this.htmlLabel3.TabIndex = 16;
             this.htmlLabel3.Text = "Send Message";
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClose.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnClose.FontWeight = MetroFramework.MetroButtonWeight.Light;
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(569, 8);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(60, 23);
+            this.btnClose.TabIndex = 17;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseCustomBackColor = true;
+            this.btnClose.UseCustomForeColor = true;
+            this.btnClose.UseSelectable = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 571);
             this.ControlBox = false;
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.htmlLabel3);
             this.Controls.Add(this.txtHex);
@@ -271,6 +289,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmClient";
             this.Opacity = 0.95D;
+            this.Resizable = false;
             this.Text = "Message Sender";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -301,6 +320,7 @@
         private MetroFramework.Controls.MetroButton brnSend;
         private MetroFramework.Controls.MetroButton btnDisconnect;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel3;
+        private MetroFramework.Controls.MetroButton btnClose;
     }
 }
 
