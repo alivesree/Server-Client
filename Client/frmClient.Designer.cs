@@ -54,7 +54,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(14, 81);
+            this.label1.Location = new System.Drawing.Point(15, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
@@ -62,7 +62,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(176, 81);
+            this.label2.Location = new System.Drawing.Point(141, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 1;
@@ -78,7 +78,7 @@
             // 
             // txtPort
             // 
-            this.txtPort.Location = new System.Drawing.Point(207, 78);
+            this.txtPort.Location = new System.Drawing.Point(168, 78);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(48, 20);
             this.txtPort.TabIndex = 3;
@@ -96,7 +96,7 @@
             // 
             this.btnConnect.BackColor = System.Drawing.Color.Lime;
             this.btnConnect.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnConnect.Location = new System.Drawing.Point(301, 77);
+            this.btnConnect.Location = new System.Drawing.Point(237, 78);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(96, 23);
             this.btnConnect.TabIndex = 6;
@@ -138,9 +138,9 @@
             this.btnDisconnect.BackColor = System.Drawing.Color.Red;
             this.btnDisconnect.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnDisconnect.Highlight = true;
-            this.btnDisconnect.Location = new System.Drawing.Point(403, 77);
+            this.btnDisconnect.Location = new System.Drawing.Point(339, 78);
             this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(95, 23);
+            this.btnDisconnect.Size = new System.Drawing.Size(96, 23);
             this.btnDisconnect.Style = MetroFramework.MetroColorStyle.Red;
             this.btnDisconnect.TabIndex = 10;
             this.btnDisconnect.Text = "Disconnect";
