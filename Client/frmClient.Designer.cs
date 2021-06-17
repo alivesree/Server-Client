@@ -47,6 +47,7 @@
             this.txtTopic = new System.Windows.Forms.TextBox();
             this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.htmlLabel2 = new MetroFramework.Drawing.Html.HtmlLabel();
+            this.htmlLabel3 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +106,7 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(12, 186);
+            this.txtMessage.Location = new System.Drawing.Point(12, 191);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.Size = new System.Drawing.Size(608, 104);
@@ -114,7 +115,7 @@
             // brnSend
             // 
             this.brnSend.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.brnSend.Location = new System.Drawing.Point(544, 294);
+            this.brnSend.Location = new System.Drawing.Point(544, 299);
             this.brnSend.Name = "brnSend";
             this.brnSend.Size = new System.Drawing.Size(75, 23);
             this.brnSend.TabIndex = 8;
@@ -217,7 +218,7 @@
             this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(78, 23);
             this.htmlLabel1.AutoSize = false;
             this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel1.Location = new System.Drawing.Point(8, 321);
+            this.htmlLabel1.Location = new System.Drawing.Point(8, 315);
             this.htmlLabel1.Name = "htmlLabel1";
             this.htmlLabel1.Size = new System.Drawing.Size(93, 23);
             this.htmlLabel1.TabIndex = 15;
@@ -229,25 +230,39 @@
             this.htmlLabel2.AutoScrollMinSize = new System.Drawing.Size(125, 23);
             this.htmlLabel2.AutoSize = false;
             this.htmlLabel2.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlLabel2.Location = new System.Drawing.Point(10, 443);
+            this.htmlLabel2.Location = new System.Drawing.Point(8, 439);
             this.htmlLabel2.Name = "htmlLabel2";
             this.htmlLabel2.Size = new System.Drawing.Size(140, 23);
             this.htmlLabel2.TabIndex = 16;
             this.htmlLabel2.Text = "Recieved Hexadecimal";
+            // 
+            // htmlLabel3
+            // 
+            this.htmlLabel3.AutoScroll = true;
+            this.htmlLabel3.AutoScrollMinSize = new System.Drawing.Size(83, 23);
+            this.htmlLabel3.AutoSize = false;
+            this.htmlLabel3.BackColor = System.Drawing.SystemColors.Window;
+            this.htmlLabel3.Location = new System.Drawing.Point(8, 175);
+            this.htmlLabel3.Name = "htmlLabel3";
+            this.htmlLabel3.Size = new System.Drawing.Size(93, 23);
+            this.htmlLabel3.TabIndex = 16;
+            this.htmlLabel3.Text = "Send Message";
             // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 571);
+            this.ControlBox = false;
+            this.Controls.Add(this.txtMessage);
+            this.Controls.Add(this.htmlLabel3);
+            this.Controls.Add(this.txtHex);
+            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.htmlLabel1);
             this.Controls.Add(this.htmlLabel2);
-            this.Controls.Add(this.txtStatus);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDisconnect);
-            this.Controls.Add(this.txtHex);
             this.Controls.Add(this.brnSend);
-            this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.txtPort);
             this.Controls.Add(this.txtHost);
@@ -255,6 +270,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmClient";
+            this.Opacity = 0.95D;
             this.Text = "Message Sender";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
@@ -284,6 +300,7 @@
         private MetroFramework.Controls.MetroButton btnConnect;
         private MetroFramework.Controls.MetroButton brnSend;
         private MetroFramework.Controls.MetroButton btnDisconnect;
+        private MetroFramework.Drawing.Html.HtmlLabel htmlLabel3;
     }
 }
 
