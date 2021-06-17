@@ -75,6 +75,7 @@ namespace client
         private void Form1_Load(object sender, EventArgs e)
         {
             client = new SimpleTcpClient();
+            Mqclient = new MqttClient(txtHost.Text);
             client.StringEncoder = Encoding.UTF8;
             client.DataReceived += Client_DataReceived;
         }
@@ -85,6 +86,7 @@ namespace client
             {
                 txtHex.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), BitConverter.ToString(e.Data).Replace("-", ""), Environment.NewLine);
                 txtStatus.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), e.MessageString, Environment.NewLine);
+                scrollToLast();
             });
         }
 
@@ -95,11 +97,27 @@ namespace client
 
                 if (rdbMQTT.Checked && Mqclient.IsConnected)
                 {
+                    if (chkLoop.Checked)
+                    {
+                        for (int i = 0; i < loopCount.Value; i++)
+                        {
+                            Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes(txtMessage.Text)); // Publishing message from client.
+                        }
+                    }
+                    else
                     Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes(txtMessage.Text)); // Publishing message from client.
                 }
                 else if (rdbTCP.Checked)
                 {
-                    client.Write(Encoding.ASCII.GetBytes(txtMessage.Text));
+                    if (chkLoop.Checked)
+                    {
+                        for (int i = 0; i < loopCount.Value; i++)
+                        {
+                            client.Write(Encoding.ASCII.GetBytes(txtMessage.Text));
+                        }
+                    }
+                    else
+                        client.Write(Encoding.ASCII.GetBytes(txtMessage.Text));
                     //client.WriteLineAndGetReply(txtMessage.Text,new TimeSpan(2));
                 }
                 else if (rdbUDP.Checked)
@@ -109,7 +127,15 @@ namespace client
                                                SocketType.Dgram, ProtocolType.Udp);
                     string msg = (char)0x0A + txtMessage.Text + (char)0x0D;
                     var data = Encoding.ASCII.GetBytes(msg);
-                    server.SendTo(data, data.Length, SocketFlags.None, RemoteEndPoint);
+                    if (chkLoop.Checked)
+                    {
+                        for (int i = 0; i < loopCount.Value; i++)
+                        {
+                            server.SendTo(data, data.Length, SocketFlags.None, RemoteEndPoint);
+                        }
+                    }
+                    else
+                        server.SendTo(data, data.Length, SocketFlags.None, RemoteEndPoint);
                 }
                 else
                 {
@@ -127,8 +153,16 @@ namespace client
         {
             txtHex.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), BitConverter.ToString(e.Message).Replace("-", ""), Environment.NewLine);
             txtStatus.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), Encoding.ASCII.GetString(e.Message), Environment.NewLine);
+            scrollToLast();
         }
-
+        async Task  scrollToLast()
+        {
+            txtHex.ScrollToCaret();
+            txtStatus.ScrollToCaret();
+            txtHex.Refresh();
+            txtStatus.Refresh();
+            this.Refresh();
+        }
         private void rdbMQTT_CheckedChanged(object sender, EventArgs e)
         {
             txtTopic.Clear();
@@ -144,6 +178,11 @@ namespace client
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void chkLoop_CheckedChanged(object sender, EventArgs e)
+        {
+            loopCount.Enabled = chkLoop.Checked;
         }
     }
 

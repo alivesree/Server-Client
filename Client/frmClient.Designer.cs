@@ -49,7 +49,10 @@
             this.htmlLabel2 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.htmlLabel3 = new MetroFramework.Drawing.Html.HtmlLabel();
             this.btnClose = new MetroFramework.Controls.MetroButton();
+            this.chkLoop = new MetroFramework.Controls.MetroCheckBox();
+            this.loopCount = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loopCount)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -265,12 +268,43 @@
             this.btnClose.UseSelectable = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // chkLoop
+            // 
+            this.chkLoop.AutoSize = true;
+            this.chkLoop.Location = new System.Drawing.Point(394, 304);
+            this.chkLoop.Name = "chkLoop";
+            this.chkLoop.Size = new System.Drawing.Size(50, 15);
+            this.chkLoop.TabIndex = 18;
+            this.chkLoop.Text = "Loop";
+            this.chkLoop.UseSelectable = true;
+            this.chkLoop.CheckedChanged += new System.EventHandler(this.chkLoop_CheckedChanged);
+            // 
+            // loopCount
+            // 
+            this.loopCount.Enabled = false;
+            this.loopCount.Location = new System.Drawing.Point(450, 303);
+            this.loopCount.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.loopCount.Name = "loopCount";
+            this.loopCount.Size = new System.Drawing.Size(64, 20);
+            this.loopCount.TabIndex = 19;
+            this.loopCount.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 571);
             this.ControlBox = false;
+            this.Controls.Add(this.loopCount);
+            this.Controls.Add(this.chkLoop);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.htmlLabel3);
@@ -294,6 +328,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loopCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,6 +356,8 @@
         private MetroFramework.Controls.MetroButton btnDisconnect;
         private MetroFramework.Drawing.Html.HtmlLabel htmlLabel3;
         private MetroFramework.Controls.MetroButton btnClose;
+        private MetroFramework.Controls.MetroCheckBox chkLoop;
+        private System.Windows.Forms.NumericUpDown loopCount;
     }
 }
 
