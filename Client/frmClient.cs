@@ -1,4 +1,5 @@
-﻿using SimpleTCP;
+﻿using MetroFramework.Forms;
+using SimpleTCP;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ using uPLibrary.Networking.M2Mqtt.Messages;
 
 namespace client
 {
-    public partial class frmClient : Form
+    public partial class frmClient : MetroForm
     {
         public frmClient()
         {
@@ -98,7 +99,8 @@ namespace client
                 }
                 else if (rdbTCP.Checked)
                 {
-                    client.WriteLine(txtMessage.Text);
+                    client.Write(Encoding.ASCII.GetBytes(txtMessage.Text));
+                    //client.WriteLineAndGetReply(txtMessage.Text,new TimeSpan(2));
                 }
                 else if (rdbUDP.Checked)
                 {
