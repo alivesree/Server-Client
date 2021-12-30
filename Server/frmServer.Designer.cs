@@ -41,11 +41,15 @@
             this.txtClientIP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.rdbTCP = new System.Windows.Forms.RadioButton();
+            this.rdbMqtt = new System.Windows.Forms.RadioButton();
+            this.txtTopic = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(358, 32);
+            this.btnConnect.Location = new System.Drawing.Point(641, 31);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 11;
@@ -55,22 +59,23 @@
             // 
             // txtPort
             // 
-            this.txtPort.Location = new System.Drawing.Point(246, 32);
+            this.txtPort.Location = new System.Drawing.Point(208, 28);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(100, 20);
             this.txtPort.TabIndex = 10;
+            this.txtPort.Text = "8000";
             // 
             // txtHost
             // 
-            this.txtHost.Location = new System.Drawing.Point(85, 28);
+            this.txtHost.Location = new System.Drawing.Point(75, 28);
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(100, 20);
             this.txtHost.TabIndex = 9;
-            this.txtHost.Text = "127.0.0.1";
+            this.txtHost.Text = "192.168.1.235";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(205, 35);
+            this.label2.Location = new System.Drawing.Point(180, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 8;
@@ -78,15 +83,15 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(43, 28);
+            this.label1.Location = new System.Drawing.Point(34, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "host";
+            this.label1.Text = "Server";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(439, 35);
+            this.button1.Location = new System.Drawing.Point(722, 31);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
@@ -100,12 +105,12 @@
             this.txtStatus.Multiline = true;
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtStatus.Size = new System.Drawing.Size(448, 122);
+            this.txtStatus.Size = new System.Drawing.Size(781, 250);
             this.txtStatus.TabIndex = 13;
             // 
             // brnSend
             // 
-            this.brnSend.Location = new System.Drawing.Point(72, 295);
+            this.brnSend.Location = new System.Drawing.Point(46, 409);
             this.brnSend.Name = "brnSend";
             this.brnSend.Size = new System.Drawing.Size(75, 23);
             this.brnSend.TabIndex = 15;
@@ -115,22 +120,22 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(61, 234);
+            this.txtMessage.Location = new System.Drawing.Point(46, 360);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(357, 43);
+            this.txtMessage.Size = new System.Drawing.Size(781, 43);
             this.txtMessage.TabIndex = 14;
             // 
             // txtClintPort
             // 
-            this.txtClintPort.Location = new System.Drawing.Point(318, 209);
+            this.txtClintPort.Location = new System.Drawing.Point(320, 334);
             this.txtClintPort.Name = "txtClintPort";
             this.txtClintPort.Size = new System.Drawing.Size(100, 20);
             this.txtClintPort.TabIndex = 19;
             // 
             // txtClientIP
             // 
-            this.txtClientIP.Location = new System.Drawing.Point(99, 208);
+            this.txtClientIP.Location = new System.Drawing.Point(103, 334);
             this.txtClientIP.Name = "txtClientIP";
             this.txtClientIP.Size = new System.Drawing.Size(100, 20);
             this.txtClientIP.TabIndex = 18;
@@ -138,7 +143,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(12, 208);
+            this.label4.Location = new System.Drawing.Point(43, 337);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 14);
             this.label4.TabIndex = 16;
@@ -146,17 +151,59 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(246, 215);
+            this.label5.Location = new System.Drawing.Point(255, 337);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 14);
             this.label5.TabIndex = 20;
             this.label5.Text = "Client Port";
             // 
+            // rdbTCP
+            // 
+            this.rdbTCP.AutoSize = true;
+            this.rdbTCP.Location = new System.Drawing.Point(477, 29);
+            this.rdbTCP.Name = "rdbTCP";
+            this.rdbTCP.Size = new System.Drawing.Size(46, 17);
+            this.rdbTCP.TabIndex = 21;
+            this.rdbTCP.TabStop = true;
+            this.rdbTCP.Text = "TCP";
+            this.rdbTCP.UseVisualStyleBackColor = true;
+            // 
+            // rdbMqtt
+            // 
+            this.rdbMqtt.AutoSize = true;
+            this.rdbMqtt.Location = new System.Drawing.Point(525, 29);
+            this.rdbMqtt.Name = "rdbMqtt";
+            this.rdbMqtt.Size = new System.Drawing.Size(56, 17);
+            this.rdbMqtt.TabIndex = 22;
+            this.rdbMqtt.TabStop = true;
+            this.rdbMqtt.Text = "MQTT";
+            this.rdbMqtt.UseVisualStyleBackColor = true;
+            // 
+            // txtTopic
+            // 
+            this.txtTopic.Location = new System.Drawing.Point(351, 29);
+            this.txtTopic.Name = "txtTopic";
+            this.txtTopic.Size = new System.Drawing.Size(100, 20);
+            this.txtTopic.TabIndex = 24;
+            this.txtTopic.Text = "Gama";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(315, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Topic";
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 326);
+            this.ClientSize = new System.Drawing.Size(839, 459);
+            this.Controls.Add(this.txtTopic);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.rdbMqtt);
+            this.Controls.Add(this.rdbTCP);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtClintPort);
             this.Controls.Add(this.txtClientIP);
@@ -193,6 +240,10 @@
         private System.Windows.Forms.TextBox txtClientIP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton rdbTCP;
+        private System.Windows.Forms.RadioButton rdbMqtt;
+        private System.Windows.Forms.TextBox txtTopic;
+        private System.Windows.Forms.Label label3;
     }
 }
 
