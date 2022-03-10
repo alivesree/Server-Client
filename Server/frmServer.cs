@@ -132,7 +132,7 @@ namespace Server
         async Task scrollToLast()
         {
             txtMessage.ScrollToCaret();
-            txtStatus.ScrollToCaret();
+            txtMessage.ScrollToCaret();
             txtMessage.Refresh();
             txtMessage.Refresh();
             this.Refresh();

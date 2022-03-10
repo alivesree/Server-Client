@@ -90,7 +90,7 @@ namespace client
             });
         }
 
-        private void brnSend_Click(object sender, EventArgs e)
+        private async void brnSend_Click(object sender, EventArgs e)
         {
             try
             {
@@ -113,6 +113,7 @@ namespace client
                     {
                         for (int i = 0; i < loopCount.Value; i++)
                         {
+                            await Task.Delay(750);
                             client.Write(Encoding.ASCII.GetBytes(txtMessage.Text));
                         }
                     }

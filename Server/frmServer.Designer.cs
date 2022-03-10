@@ -71,7 +71,7 @@
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(100, 20);
             this.txtHost.TabIndex = 9;
-            this.txtHost.Text = "192.168.1.235";
+            this.txtHost.Text = "192.168.1.148";
             // 
             // label2
             // 
