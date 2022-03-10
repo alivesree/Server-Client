@@ -104,7 +104,7 @@ namespace client
                         {
                             while (true)
                             {
-                                Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes("Index " + i++ + " " + txtMessage.Text)); // Publishing message from client.
+                                Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes( txtMessage.Text.Replace("{i}",i++.ToString()))); // Publishing message from client.
                                 await Task.Delay(750);
                             }
                         }

@@ -51,8 +51,12 @@
             this.btnClose = new MetroFramework.Controls.MetroButton();
             this.chkLoop = new MetroFramework.Controls.MetroCheckBox();
             this.loopCount = new System.Windows.Forms.NumericUpDown();
+            this.txtNumDelay = new System.Windows.Forms.NumericUpDown();
+            this.txtDelay = new MetroFramework.Controls.MetroCheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loopCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -295,7 +299,7 @@
             // chkLoop
             // 
             this.chkLoop.AutoSize = true;
-            this.chkLoop.Location = new System.Drawing.Point(525, 374);
+            this.chkLoop.Location = new System.Drawing.Point(566, 370);
             this.chkLoop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chkLoop.Name = "chkLoop";
             this.chkLoop.Size = new System.Drawing.Size(54, 17);
@@ -307,7 +311,7 @@
             // loopCount
             // 
             this.loopCount.Enabled = false;
-            this.loopCount.Location = new System.Drawing.Point(600, 373);
+            this.loopCount.Location = new System.Drawing.Point(628, 369);
             this.loopCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loopCount.Maximum = new decimal(new int[] {
             -727379969,
@@ -323,12 +327,58 @@
             0,
             0});
             // 
+            // txtNumDelay
+            // 
+            this.txtNumDelay.Location = new System.Drawing.Point(420, 370);
+            this.txtNumDelay.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumDelay.Maximum = new decimal(new int[] {
+            50000,
+            0,
+            0,
+            0});
+            this.txtNumDelay.Minimum = new decimal(new int[] {
+            450,
+            0,
+            0,
+            0});
+            this.txtNumDelay.Name = "txtNumDelay";
+            this.txtNumDelay.Size = new System.Drawing.Size(85, 22);
+            this.txtNumDelay.TabIndex = 21;
+            this.txtNumDelay.Value = new decimal(new int[] {
+            750,
+            0,
+            0,
+            0});
+            // 
+            // txtDelay
+            // 
+            this.txtDelay.AutoSize = true;
+            this.txtDelay.Location = new System.Drawing.Point(359, 371);
+            this.txtDelay.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDelay.Name = "txtDelay";
+            this.txtDelay.Size = new System.Drawing.Size(56, 17);
+            this.txtDelay.TabIndex = 20;
+            this.txtDelay.Text = "Delay";
+            this.txtDelay.UseSelectable = true;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(506, 372);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 24);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "ms";
+            // 
             // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 703);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtNumDelay);
+            this.Controls.Add(this.txtDelay);
             this.Controls.Add(this.loopCount);
             this.Controls.Add(this.chkLoop);
             this.Controls.Add(this.btnClose);
@@ -357,6 +407,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loopCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,6 +437,9 @@
         private MetroFramework.Controls.MetroButton btnClose;
         private MetroFramework.Controls.MetroCheckBox chkLoop;
         private System.Windows.Forms.NumericUpDown loopCount;
+        private System.Windows.Forms.NumericUpDown txtNumDelay;
+        private MetroFramework.Controls.MetroCheckBox txtDelay;
+        private System.Windows.Forms.Label label4;
     }
 }
 
