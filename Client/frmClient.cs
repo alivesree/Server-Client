@@ -34,7 +34,7 @@ namespace client
 
                 if (rdbMQTT.Checked)
                 {
-                    Mqclient = new MqttClient(txtHost.Text);
+                    Mqclient = new MqttClient(txtHost.Text, Convert.ToInt32(txtPort.Text), false, null, null, MqttSslProtocols.TLSv1_2);
                     Mqclient.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
                     Mqclient.Subscribe(new string[] { txtTopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
                     Mqclient.Connect("SDH-DebugTool");
@@ -150,10 +150,16 @@ namespace client
             }
         }
 
-        private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        private async void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            txtHex.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), BitConverter.ToString(e.Message).Replace("-", ""), Environment.NewLine);
-            txtStatus.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), Encoding.ASCII.GetString(e.Message), Environment.NewLine);
+            txtStatus.Invoke((MethodInvoker)delegate ()
+            {
+                txtHex.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), BitConverter.ToString(e.Message).Replace("-", ""), Environment.NewLine);
+            });
+            txtStatus.Invoke((MethodInvoker)delegate ()
+            {
+                txtStatus.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), Encoding.ASCII.GetString(e.Message), Environment.NewLine);
+            });
             scrollToLast();
         }
         async Task  scrollToLast()
