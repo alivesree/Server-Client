@@ -99,10 +99,20 @@ namespace client
                 {
                     if (chkLoop.Checked)
                     {
-                        for (int i = 0; i < loopCount.Value; i++)
+                        UInt64 i = 0;
+                        if (loopCount.Value==0)
                         {
-                            Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes(txtMessage.Text)); // Publishing message from client.
+                            while (true)
+                            {
+                                Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes("Index " + i++ + " " + txtMessage.Text)); // Publishing message from client.
+                                await Task.Delay(750);
+                            }
                         }
+                        for ( i = 0; i < loopCount.Value; i++)
+                        {
+                            Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes("Index " + i +" "+ txtMessage.Text)); // Publishing message from client.
+                            await Task.Delay(750);
+                        } 
                     }
                     else
                     Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes(txtMessage.Text)); // Publishing message from client.
@@ -155,10 +165,14 @@ namespace client
             txtStatus.Invoke((MethodInvoker)delegate ()
             {
                 txtHex.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), BitConverter.ToString(e.Message).Replace("-", ""), Environment.NewLine);
+                txtHex.SelectionStart = txtHex.TextLength;
+                txtHex.ScrollToCaret();// = txtHex.Text.Length;
             });
             txtStatus.Invoke((MethodInvoker)delegate ()
             {
                 txtStatus.Text += string.Format("{0} : {1}{2}", DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), Encoding.ASCII.GetString(e.Message), Environment.NewLine);
+                txtStatus.SelectionStart = txtStatus.TextLength;
+                txtStatus.ScrollToCaret();// = txtStatus.Text.Length;
             });
             scrollToLast();
         }
