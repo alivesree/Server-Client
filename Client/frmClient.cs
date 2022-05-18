@@ -37,7 +37,7 @@ namespace client
                     Mqclient = new MqttClient(txtHost.Text, Convert.ToInt32(txtPort.Text), false, null, null, MqttSslProtocols.TLSv1_2);
                     Mqclient.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
                     Mqclient.Subscribe(new string[] { txtTopic.Text }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-                    Mqclient.Connect("SDH-DebugTool");
+                    Mqclient.Connect("SDH-DebugTool"+DateTime.Now.ToString("ss-fff"));
                 }
                 else
                 {
@@ -101,17 +101,17 @@ namespace client
                     {
                         UInt64 i = 0;
                         if (loopCount.Value==0)
-                        {
+                        { 
                             while (true)
                             {
                                 Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes( txtMessage.Text.Replace("{i}",i++.ToString()))); // Publishing message from client.
-                                await Task.Delay(750);
+                                await Task.Delay(Convert.ToInt32(txtNumDelay.Text));
                             }
                         }
                         for ( i = 0; i < loopCount.Value; i++)
                         {
-                            Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes("Index " + i +" "+ txtMessage.Text)); // Publishing message from client.
-                            await Task.Delay(750);
+                            Mqclient.Publish(txtTopic.Text, Encoding.ASCII.GetBytes(txtMessage.Text)); // Publishing message from client.
+                            await Task.Delay(Convert.ToInt32(txtNumDelay.Text));
                         } 
                     }
                     else
